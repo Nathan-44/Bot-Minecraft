@@ -15,4 +15,4 @@ Ce projet est un bot Discord utilisant Python qui permet de jouer à un jeu mine
 
 ## Licence
 
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+Ce projet est sous licence MIT. Voir le fichier `LICENSE.txt` pour plus de détails.
