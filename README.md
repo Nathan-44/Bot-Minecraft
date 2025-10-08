@@ -4,21 +4,29 @@ Ce projet est un bot Discord utilisant Python qui permet de jouer à un jeu mine
 
 ## Configuration
 
-- ```bash git clone https://github.com/Nathan-44/Bot-Minecraft.git
+- ```bash
+    git clone https://github.com/Nathan-44/Bot-Minecraft.git
 
-- ```cd Bot-Minecraft
+- ```bash
+  cd Bot-Minecraft
 
-- ```python -m venv venv
+- ```python
+  python -m venv venv
+- ```bash
     - Window : venv\Scripts\activate
+  
+- ```bash
     - Linux/Mac : source venv/bin/activate
 
-- pip install -r requirements.txt
+- ```bash
+    pip install -r requirements.txt
 
-- Créer fichier .env
+-  Créer fichier .env
 
 - Ajouter DISCORD_TOKEN=<TOKEN>
 
-- Démarre le bot python src/main.py
+- ```bash
+  python src/main.py
 
 - Dans Minecraft
     - Touches : 
