@@ -1,0 +1,23 @@
+!position coin 1 inv
+Point(x=416,y=342)
+
+!position coin 2 inv
+Point(x=470,y=396)
+ 
+!position coin 3 inv
+Point(x=417,y=516)
+
+!position coin 4 inv
+Point(x=471,y=514)
+
+!position coin 1 craft
+Point(x=442,y=388)
+
+!position coin 2 craft
+Point(x=497,y=443)
+
+!position coin 3 craft
+Point(x=443,y=560)
+
+!position coin 4 craft
+Point(x=498,y=563)
