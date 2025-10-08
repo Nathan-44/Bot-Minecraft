@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands
 import pyautogui
 
-# Récupère le token
+# Récupère le token discord depuis .env
 with open(".env") as f:
     for line in f:
         if line.strip() and not line.startswith("#"):
@@ -20,6 +20,7 @@ def init_bot():
     """
     # Création d'un objet Intents avec les paramètres par défaut
     intents = discord.Intents.default()
+    # Permet l'accès au contenu des messages
     intents.message_content = True
 
     # Préfixe des commandes du bot
@@ -35,7 +36,6 @@ def commandes_basique():
     """
     Commandes basiques du bot qui n'entrent pas dans les catégorie mouvement ou inventaire
     """
-    # Commande position souris
     @bot.command()
     async def position(ctx):
         """

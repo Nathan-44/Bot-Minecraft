@@ -12,5 +12,6 @@ async def clique(touche: str):
         touche(str) : touche sur laquelle il faut cliquer
     """
     pyautogui.keyDown(touche)
+    # Attendre assez longtemps pour que minecraft le détècte
     await asyncio.sleep(0.3)
     pyautogui.keyUp(touche)

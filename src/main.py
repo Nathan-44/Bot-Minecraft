@@ -1,15 +1,5 @@
 """
-Config :
-    -touches : 
-        z: avancer
-        s: reculer
-        r: courir
-        shift: s'accroupir
-    -accroupir : basuler
-    -courir : basuler
-    -controle -> parametre souris -> entrée brute : Non
-
-Necessite .env qui contient le token discord
+Module de lancement du bot
 """
 
 from bot import *

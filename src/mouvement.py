@@ -13,11 +13,18 @@ reculer_en_cours = False
 minage_en_cours = False
 DEGRES_PAR_PIXEL = 0.1
 
+
 def stop():
+    """
+    Fonction qui arrete le déplacement
+    """
     global avancer_en_cours
     global reculer_en_cours
+
+    # Relève les deux touches de déplacement
     pyautogui.keyUp("z")
     pyautogui.keyUp("s")
+
     reculer_en_cours = False
     avancer_en_cours = False
 
@@ -30,9 +37,11 @@ async def av(ctx):
     global avancer_en_cours
     global reculer_en_cours
 
+    # Si on recule, on s'arrete
     if reculer_en_cours:
         stop()
     
+    # Si on avance pas, on se met à avancer
     if not avancer_en_cours:
         pyautogui.keyDown("z")
         await ctx.send("Le joueur avance")
@@ -47,9 +56,11 @@ async def re(ctx):
     global reculer_en_cours
     global avancer_en_cours
 
+    # Si on avnace, on s'arrete
     if avancer_en_cours:
         stop()
 
+    # Si on ne recule pas, on se met à reculer
     if not reculer_en_cours:
         pyautogui.keyDown("s")
         await ctx.send("Le joueur recule")
@@ -70,7 +81,6 @@ async def sa(ctx):
     """
     Commande pour sauter
     """
-    # Permet au joueur de sauter
     await clique("space")
     await ctx.send("Le joueur saute")
     print("Saut")
@@ -78,7 +88,7 @@ async def sa(ctx):
 @bot.command()
 async def sh(ctx):
     """
-    Commande pour se mettre en shift
+    Commande pour se mettre en shift (s'accroupir)
     """
     await clique("shift")
     await ctx.send("Le joueur basule la touche shift")
