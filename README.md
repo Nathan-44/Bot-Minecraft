@@ -14,7 +14,19 @@ Ce projet est un bot Discord utilisant Python qui permet de jouer à un jeu mine
 - Intsaller les dépendances : `pip install -r requirements.txt`
 
 - Créer le fichier `.env`
-- Ajouter DISCORD_TOKEN="Votre_Token" à l'interieur
+- ```bash
+  DISCORD_TOKEN="Votre token"
+  
+  DISTANCE_CASE="Distance entre les cases de l'inventaire
+
+  X_INV="Coordonnée x de la premiere case de l'inventaire"
+  Y_INV="Coordonnée y de la première case de l'inventaire"
+  Y_INV_HOT="Coordonnée y de la première case de la hotbar lorsque l'inventaire est ouvert"
+
+  X_CRAFT="Coordonnée x de la premiere case de l'inventaire lorsque la table de craft est ouverte"
+  Y_CRAFT="Coordonnée y de la premiere case de l'inventaire lorsque la table de craft est ouverte"
+  Y_CRAFT_HOT="Coordonnée y de la première case de la hotbar lorsque la table de craft est ouverte"
+  
 - Démarrer le programme : `python src/main.py`
 
 ### Dans Minecraft
