@@ -2,6 +2,10 @@
 Module de lancement du bot
 """
 
+# Initialisation des variables d'environnement
+from utilitaire import load_env
+load_env()
+
 from bot import *
 
 # Initialisation du bot

@@ -1,23 +1,24 @@
 !position coin 1 inv
-Point(x=416,y=342)
+Point(x=420,y=340)
 
 !position coin 2 inv
-Point(x=470,y=396)
+Point(x=470,y=400)
  
-!position coin 3 inv
-Point(x=417,y=516)
+!position coin 3 barre inv
+Point(x=420,y=520)
 
-!position coin 4 inv
-Point(x=471,y=514)
+!position coin 4 barre inv
+Point(x=470,y=520)
+
 
 !position coin 1 craft
-Point(x=442,y=388)
+Point(x=440,y=390)
 
 !position coin 2 craft
-Point(x=497,y=443)
+Point(x=500,y=440)
 
-!position coin 3 craft
-Point(x=443,y=560)
+!position coin 3 barre craft
+Point(x=440,y=560)
 
-!position coin 4 craft
-Point(x=498,y=563)
+!position coin 4  barre craft
+Point(x=500,y=560)

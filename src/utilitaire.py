@@ -1,8 +1,19 @@
 import asyncio
+import os
 
 import discord
 from discord.ext import commands
 import pyautogui
+
+def load_env():
+    """
+    Charge les variables d'environnement depuis le fichier .env
+    """
+    with open(".env") as f:
+        for line in f:
+            if line.strip() and not line.startswith("#"):
+                key, value = line.strip().split("=", 1)
+                os.environ[key] = value
 
 async def clique(touche: str):
     """

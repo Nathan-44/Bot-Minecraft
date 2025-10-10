@@ -4,32 +4,33 @@ Ce projet est un bot Discord utilisant Python qui permet de jouer à un jeu mine
 
 ## Configuration
 
-- Installer le bot :
-  - Cloner le dépot : `git clone https://github.com/Nathan-44/Bot-Minecraft.git`
-  - Se déplacer dans le bon dossier : `cd Bot-Minecraft`
+### Installer le bot :
+- Cloner le dépot : `git clone https://github.com/Nathan-44/Bot-Minecraft.git`
+- Se déplacer dans le bon dossier : `cd Bot-Minecraft`
 
-  - Créer l'environnement de développement virtuel : `python -m venv venv`
-    - Window : `venv\Scripts\activate`
-    - Linux/Mac : `source venv/bin/activate`
-  - Intsaller les dépendances : `pip install -r requirements.txt`
+- Créer l'environnement de développement virtuel : `python -m venv venv`
+  - Window : `venv\Scripts\activate`
+  - Linux/Mac : `source venv/bin/activate`
+- Intsaller les dépendances : `pip install -r requirements.txt`
 
-  - Créer le fichier `.env`
-  - Ajouter DISCORD_TOKEN="Votre_Token" à l'interieur
-  - Démarrer le programme : `python src/main.py`
+- Créer le fichier `.env`
+- Ajouter DISCORD_TOKEN="Votre_Token" à l'interieur
+- Démarrer le programme : `python src/main.py`
 
-- Dans Minecraft
-    - Touches : 
-        - z: avancer
-        - s: reculer
-        - r: courir
-        - shift: s'accroupir
+### Dans Minecraft
+- Touches : 
+  - z: avancer
+  - s: reculer
+  - r: courir
+  - shift: s'accroupir
+  - Sensibilité caméra: 100%
 
-    - Accroupir : basuler
-    - Courir : basuler
+- Accroupir : basuler
+- Courir : basuler
 
-    - Controle -> parametre souris -> entrée brute : Non
+- Controle -> parametre souris -> entrée brute : Non
 
-    - Penser à cliquer sur la fenetre minecraft
+- Penser à cliquer sur la fenetre minecraft
 
 ## Bibliothèques utilisées
 

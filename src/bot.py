@@ -4,13 +4,6 @@ import os
 import discord
 from discord.ext import commands
 import pyautogui
-
-# Récupère le token discord depuis .env
-with open(".env") as f:
-    for line in f:
-        if line.strip() and not line.startswith("#"):
-            key, value = line.strip().split("=", 1)
-            os.environ[key] = value
     
 TOKEN = str(os.getenv("DISCORD_TOKEN"))
 

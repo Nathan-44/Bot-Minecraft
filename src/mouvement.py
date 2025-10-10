@@ -14,10 +14,17 @@ minage_en_cours = False
 DEGRES_PAR_PIXEL = 0.1
 
 
-def stop():
+def stop(ctx):
     """
-    Fonction qui arrete le déplacement
+    Fonction qui arrête complètement tout déplacements.
+
+    Args:
+        - None
+    
+    Returns:
+        - None
     """
+
     global avancer_en_cours
     global reculer_en_cours
 
@@ -28,18 +35,23 @@ def stop():
     reculer_en_cours = False
     avancer_en_cours = False
 
+    ctx.send("Le mouvement est arrêté.")
+    print("Touches 'z' est 's' relevées.")
+
 
 @bot.command()
 async def av(ctx):
     """
-    Commande pour avancer
+    Commande pour avancer.
+
+    Args
     """
     global avancer_en_cours
     global reculer_en_cours
 
     # Si on recule, on s'arrete
     if reculer_en_cours:
-        stop()
+        stop(ctx)
     
     # Si on avance pas, on se met à avancer
     if not avancer_en_cours:
@@ -58,7 +70,7 @@ async def re(ctx):
 
     # Si on avnace, on s'arrete
     if avancer_en_cours:
-        stop()
+        stop(ctx)
 
     # Si on ne recule pas, on se met à reculer
     if not reculer_en_cours:
@@ -72,7 +84,7 @@ async def st(ctx):
     """
     Commande pour s'arreter
     """
-    stop()
+    stop(ctx)
     await ctx.send("Le joueur s'arret")
     print("Arret")
 
@@ -109,23 +121,49 @@ async def ta(ctx):
     """
     Commande pour frapper
     """
+    global minage_en_cours
+    
     pyautogui.leftClick()
+    # Pour ne pas entrer en conflit avec le minage
+    minage_en_cours = False
     await ctx.send("Clique gauche de souris.")
     print("Click gauche.")
 
 @bot.command()
 async def cr(ctx):
     """
-    Commande pour donner un coup critique (jump + hit)
+    Commande pour donner un coup critique (jump + hit).
+
+    Args:
+        - None
+
+    Returns:
+        - None
     """
-    await ta(ctx)
-    await sa(ctx)
+    global minage_en_cours
+
+    await clique("space")
+    pyautogui.leftClick()
+    # Pour ne pas entrer en conflit avec le minage
+    minage_en_cours = False
+    await ctx.send("Coup critique effectué")
+    print("Coup critique effectué")
 
 @bot.command()
 async def s(ctx, x: float, y: float):
     """
-    Commande pour bouger la souris en fonction de l'angle (degrés).
+    Commande pour bouger la souris en fonction d'une valeur arbitraire.
+
+    Args:
+        - x (float): Le nombre pour l'abscisse.
+        - y (float): Le nombre pour l'ordonnée.
+    Returns:
+        - None
+
+    HELP:
+        - 5 ~= Une case de l'inventaire
     """
+
     # Conversion des degrés en pixels
     pixels_x = x / DEGRES_PAR_PIXEL
     pixels_y = y / DEGRES_PAR_PIXEL
@@ -133,33 +171,66 @@ async def s(ctx, x: float, y: float):
     # Déplacer la souris de manière relative
     pyautogui.moveRel(pixels_x, pixels_y)
     
-    await ctx.send(f"La souris a bougé de {pixels_x} pixels en X et {pixels_y} pixels en Y, correspondant à {x} degrés horizontalement et {y} degrés verticalement.")
+    await ctx.send(f"La souris a bougé de {pixels_x} pixels en X et {pixels_y} pixels en Y.")
     print(f"La souris a bougé de {pixels_x} pixels en X et {pixels_y} pixels en Y.")
 
 @bot.command()
-async def min(ctx, secondes: float):
+async def sx(ctx, x: float):
     """
-    Commande pour basculer le mode minage
+    Commande pour bouger la souris horizontalement en fonction d'un nombre.
+    """
+
+    # Conversion en pixels
+    pixels_x = x / DEGRES_PAR_PIXEL
+
+    # Déplacer la souris de manière relative
+    pyautogui.moveRel(pixels_x, 0)
+    
+    await ctx.send(f"La souris a bougé de {pixels_x} pixels en X.")
+    print(f"La souris a bougé de {pixels_x} pixels en X.")
+
+@bot.command()
+async def sy(ctx, y: float):
+    """
+    Commande pour bouger la souris verticalement en fonction d'un nombre.
+    """
+
+    # Conversion en pixels
+    pixels_y = y / DEGRES_PAR_PIXEL
+
+    # Déplacer la souris de manière relative
+    pyautogui.moveRel(0, pixels_y)
+    
+    await ctx.send(f"La souris a bougé de {pixels_y} pixels en Y.")
+    print(f"La souris a bougé de {pixels_y} pixels en Y.")
+
+@bot.command()
+async def min(ctx):
+    """
+    Commande pour basculer le mode minage     
     """
     global minage_en_cours
 
-    # Si le mode minage est activé, le désactivé, sinon l'activer
-    if minage_en_cours:
-        minage_en_cours = False
-        pyautogui.mouseUp(button="left")
-        await ctx.send("Mode minage désactivé")
-    
-    else:
+    # Si on n'est pas en train de miner, on mine
+    if not minage_en_cours:
         minage_en_cours = True
         pyautogui.mouseDown(button="left")
         await ctx.send("Mode minage activé")
+        print("Mode minage activé")
+    
+    # Sinon on s'arrete
+    else:
+        minage_en_cours = False
+        pyautogui.mouseUp(button="left")
+        await ctx.send("Mode minage désactivé")
+        print("Mode minage désactivé")
 
 @bot.command()
-async def ut(ctx):
+async def cd(ctx):
     """
     Commande pour simuler un clique droit
     """
     pyautogui.rightClick()
     await ctx.send("Clique droit de souris.")
-    print("Click droit.")
+    print("Clique droit.")
     
