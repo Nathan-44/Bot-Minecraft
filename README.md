@@ -14,7 +14,8 @@ Ce projet est un bot Discord utilisant Python qui permet de jouer à un jeu mine
 - Intsaller les dépendances : `pip install -r requirements.txt`
 
 - Créer le fichier `.env`
-- ```bash
+- Y mettre :
+  ```
   DISCORD_TOKEN="Votre token"
   
   DISTANCE_CASE="Distance entre les cases de l'inventaire
